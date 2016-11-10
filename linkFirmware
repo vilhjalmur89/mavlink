@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Usage: ./linkFirmware ~/catkin_ws/src/Firmware
+# Links the mavlink headers from catkin instead of the mavlink submodule
+
+firmware_dir=$(readlink -m $1)
+mv $firmware_dir/mavlink $firmware_dir/mavlink_old
+ln -s ~/catkin_ws/devel $firmware_dir/mavlink
